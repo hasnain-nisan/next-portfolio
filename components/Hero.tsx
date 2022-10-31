@@ -29,7 +29,7 @@ const Hero = (props: Props) => {
           height={500}
         />
         <div className="z-20">
-          <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
+          <h2 className="text-sm uppercase font-bold text-gray-500 pb-2 tracking-[15px]">
             Hasnain Nisan
           </h2>
           <h1 className="text-5xl lg:text-6xl font-semibold px-10">
