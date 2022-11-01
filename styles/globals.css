@@ -9,3 +9,15 @@
             hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40
     }
 }
+
+.swiper-button-next::after{
+    color: #F7AB0A;
+}
+
+.swiper-button-prev::after{
+    color: #F7AB0A;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #F7AB0A !important;
+}
