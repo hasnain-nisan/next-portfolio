@@ -6,10 +6,10 @@ type Props = {}
 const About = (props: Props) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 200 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5 }}
-      viewport={{ once: true }}
+      initial={{ scale: 0.1, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1.3 }}
+      // viewport={{ once: true }}
       className="h-screen relative flex flex-col text-center md:text-left md:flex-row
         max-w-7xl px-10 justify-evenly mx-auto items-center pt-20"
     >
@@ -19,14 +19,14 @@ const About = (props: Props) => {
 
       <motion.img
         initial={{
+          scale: 0.1,
           opacity: 0,
-          x: -200,
         }}
         transition={{
           duration: 1.2,
         }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        // viewport={{ once: true }}
         src="https://scontent.fdac135-1.fna.fbcdn.net/v/t39.30808-6/269151378_4679922575419275_9063955384794938699_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFpgc2A39GA9uSv9XnkXivpTxgTMZTj7edPGBMxlOPt50MedTlBqG6ImJ1Zag-Ixv3DLOi0aYBAmF7uiGRy2x-j&_nc_ohc=3nqWNKkw-zoAX-ycY4u&_nc_ht=scontent.fdac135-1.fna&oh=00_AfCkfBqVisnOZqpWK1WMiGKw_1KGNCMGyTt4Su4nitTi1g&oe=63667449"
         className="-mb-20 md:mb-0 flex-shrink-0 h-56 w-56 object-cover rounded-full
         md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
