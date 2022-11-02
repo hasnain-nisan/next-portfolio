@@ -23,10 +23,10 @@ const Skill = (props: Props) => {
 
       <div
         className="rounded-full absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out
-      group-hover:bg-gray-300 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 xl:h-32 xl:w-32"
+      group-hover:bg-[#F7AB0A] w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 xl:h-32 xl:w-32"
       >
         <div className="flex items-center justify-center h-full w-full">
-          <p className="font-semibold text-gray-800 text-2xl md:text-3xl opacity-100">
+          <p className="font-semibold text-gray-900 text-2xl md:text-3xl opacity-100">
             100%
           </p>
         </div>
