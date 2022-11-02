@@ -24,8 +24,8 @@ const ExperienceCard = (props: Props) => {
         className="w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
       />
       <div className="px-0 md:px-10">
-        <h4 className="text-3xl font-light">Backend Developer</h4>
-        <p className="text-2xl font-bold mt-1">Lazychat</p>
+        <h4 className="text-3xl font-light text-gray-200">Backend Developer</h4>
+        <p className="text-2xl font-bold mt-1 text-gray-200">Lazychat</p>
         <div className="flex justify-center space-x-2 my-2">
           <picture className="h-10 w-10 rounded-full">
             <source
@@ -59,7 +59,7 @@ const ExperienceCard = (props: Props) => {
           </picture>
         </div>
         <p className="uppercase pt-2 pb-5 text-gray-400">Start --- End</p>
-        <ul className="list-disc space-y-2 ml-5 text-md text-start">
+        <ul className="list-disc space-y-2 ml-5 text-md text-start text-gray-300">
           <li>Summary points</li>
           <li>Summary points</li>
           <li>Summary points</li>

@@ -8,13 +8,13 @@ const Project = (props: Props) => {
     <div className="w-full h-screen flex flex-col flex-shrink-0 space-y-5 items-center justify-center">
       <motion.img
         initial={{
-          y: -300,
+          scale: 0.1,
           opacity: 0,
         }}
         transition={{
           duration: 1,
         }}
-        whileInView={{ opacity: 1, y: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
         src="https://elements-cover-images-0.imgix.net/0d4288a6-5427-4c66-8571-10dce5cf4d3f?auto=compress%2Cformat&fit=max&w=900&s=543c20981c38a89caa61572b62f35504"
         className="object-cover h-[150px] w-[300px] md:h-[200px] md:w-[350px] xl:h-[300px] xl:w-[450px]"
       />
