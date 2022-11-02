@@ -5,9 +5,10 @@ type Props = {}
 
 const ExperienceCard = (props: Props) => {
   return (
-    <article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 
+    <article
+      className="text-center flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 
     snap-center bg-[#292929] px-5 py-10 opacity-60 hover:opacity-100 cursor-pointer transition-opacity
-    duration-200'
+    duration-200"
     >
       <motion.img
         initial={{
@@ -15,7 +16,7 @@ const ExperienceCard = (props: Props) => {
           opacity: 0,
         }}
         transition={{
-          duration: 1.2,
+          duration: 1,
         }}
         whileInView={{ scale: 1, opacity: 1 }}
         // viewport={{ once: true }}
@@ -25,7 +26,7 @@ const ExperienceCard = (props: Props) => {
       <div className="px-0 md:px-10">
         <h4 className="text-3xl font-light">Backend Developer</h4>
         <p className="text-2xl font-bold mt-1">Lazychat</p>
-        <div className="flex space-x-2 my-2">
+        <div className="flex justify-center space-x-2 my-2">
           <picture className="h-10 w-10 rounded-full">
             <source
               srcSet="https://img.icons8.com/bubbles/500/react.png"
@@ -57,8 +58,8 @@ const ExperienceCard = (props: Props) => {
             />
           </picture>
         </div>
-        <p className='uppercase py-5 text-gray-400'>Start --- End</p>
-        <ul className="list-disc space-y-2 ml-5 text-lg">
+        <p className="uppercase pt-2 pb-5 text-gray-400">Start --- End</p>
+        <ul className="list-disc space-y-2 ml-5 text-md text-start">
           <li>Summary points</li>
           <li>Summary points</li>
           <li>Summary points</li>

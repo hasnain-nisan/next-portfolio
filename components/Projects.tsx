@@ -1,44 +1,31 @@
 import React from 'react'
-import { motion } from "framer-motion"
-import ExperienceCard from './ExperienceCard';
-import { Navigation, Pagination } from "swiper";
+import Project from './Project';
+import { motion } from "framer-motion";
+import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 type Props = {}
 
-const WorkExperience = (props: Props) => {
+const Projects = (props: Props) => {
   return (
     <motion.div
       initial={{ scale: 0.1, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1.3 }}
-      className="h-screen relative flex flex-col text-left md:flex-row
+      className="h-screen relative flex flex-col text-center md:text-left md:flex-row
         max-w-7xl px-10 justify-evenly mx-auto items-center pt-20"
     >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
-        Experience
+        Projects
       </h3>
-
       <Swiper
-        modules={[Navigation, Pagination]}
+        modules={[Navigation]}
         spaceBetween={50}
         slidesPerView={1}
-        speed={1500}
-        breakpoints={{
-          480: {
-            slidesPerView: 1,
-          },
-          640: {
-            slidesPerView: 2,
-          },
-          1150: {
-            slidesPerView: 3,
-          },
-        }}
         navigation
+        speed={1500}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
@@ -46,20 +33,24 @@ const WorkExperience = (props: Props) => {
         className="w-full flex justify-center p-10"
       >
         <SwiperSlide>
-          <ExperienceCard />
+          <Project />
         </SwiperSlide>
         <SwiperSlide>
-          <ExperienceCard />
+          <Project />
         </SwiperSlide>
         <SwiperSlide>
-          <ExperienceCard />
+          <Project />
         </SwiperSlide>
         <SwiperSlide>
-          <ExperienceCard />
+          <Project />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Project />
         </SwiperSlide>
       </Swiper>
+      <div className="w-full absolute top-[30%] bg-[#58400c] h-[500px] -skew-y-12 opacity-60 rounded-xl"></div>
     </motion.div>
   );
 }
 
-export default WorkExperience
+export default Projects
