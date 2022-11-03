@@ -15,14 +15,15 @@ const Project = (props: Props) => {
           duration: 1,
         }}
         whileInView={{ scale: 1, opacity: 1 }}
+        loading="lazy"
         src="https://elements-cover-images-0.imgix.net/0d4288a6-5427-4c66-8571-10dce5cf4d3f?auto=compress%2Cformat&fit=max&w=900&s=543c20981c38a89caa61572b62f35504"
         className="object-cover h-[150px] w-[300px] md:h-[200px] md:w-[350px] xl:h-[300px] xl:w-[450px]"
       />
-      <div className="max-w-6xl space-y-10 px-5 flex flex-col items-center">
-        <h4 className="text-3xl md:text-4xl font-semibold text-center text-gray-200">
+      <div className="pb-10 max-w-6xl space-y-5 sm:space-y-10 px-5 flex flex-col items-center">
+        <h4 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center text-gray-200">
           Ecommerce website
         </h4>
-        <p className="text-sm text-center md:text-lg md:text-left text-gray-300">
+        <p className="text-sm max-h-64 overflow-y-scroll no-scrollbar text-center md:text-lg md:text-left text-gray-300">
           A project description is a high-level overview of why you’re doing a
           project. The document explains a project’s objectives and its
           essential qualities. Think of it as the elevator pitch that focuses on

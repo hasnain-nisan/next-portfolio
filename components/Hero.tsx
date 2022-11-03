@@ -30,6 +30,7 @@ const Hero = (props: Props) => {
             duration: 2,
           }}
           whileInView={{ opacity: 1, scale: 1 }}
+          loading="lazy"
           src="https://scontent.fdac135-1.fna.fbcdn.net/v/t39.30808-6/269151378_4679922575419275_9063955384794938699_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFpgc2A39GA9uSv9XnkXivpTxgTMZTj7edPGBMxlOPt50MedTlBqG6ImJ1Zag-Ixv3DLOi0aYBAmF7uiGRy2x-j&_nc_ohc=3nqWNKkw-zoAX-ycY4u&_nc_ht=scontent.fdac135-1.fna&oh=00_AfCkfBqVisnOZqpWK1WMiGKw_1KGNCMGyTt4Su4nitTi1g&oe=63667449"
           className="relative rounded-full h-20 w-20 sm:h-32 sm:w-32 mx-auto object-cover"
         />
