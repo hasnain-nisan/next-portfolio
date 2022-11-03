@@ -39,7 +39,7 @@ const About = (props: Props) => {
           <span className="underline decoration-[#966a0c]">little</span>{" "}
           background
         </h4>
-        <div className="h-[300px] sm:h-72 overflow-y-scroll no-scrollbar">
+        <div className="h-[250px] sm:h-72 overflow-y-scroll no-scrollbar">
           <p className="text-sm sm:text-base text-gray-300">
             Beginning in the 1960s, software engineering was seen as its own
             type of engineering. Additionally, the development of software

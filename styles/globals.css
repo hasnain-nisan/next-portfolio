@@ -36,6 +36,12 @@
     color: #F7AB0A;
 }
 
+.swiper-pagination-bullet {
+    margin: 5px 0px 5px 0px;
+    position: relative;
+    top: 10px;
+}
+
 .swiper-pagination-bullet-active {
     background-color: #F7AB0A !important;
 }

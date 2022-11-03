@@ -5,7 +5,7 @@ type Props = {}
 
 const Project = (props: Props) => {
   return (
-    <div className="w-full h-screen flex flex-col flex-shrink-0 space-y-5 items-center justify-center">
+    <div className="w-full h-screen flex flex-col flex-shrink-0 space-y-5 items-center justify-center pb-20">
       <motion.img
         initial={{
           scale: 0.1,
@@ -23,7 +23,7 @@ const Project = (props: Props) => {
         <h4 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center text-gray-200">
           Ecommerce website
         </h4>
-        <p className="text-sm max-h-64 overflow-y-scroll no-scrollbar text-center md:text-lg md:text-left text-gray-300">
+        <p className="text-sm max-h-[10rem] sm:max-h-64 overflow-y-scroll no-scrollbar text-center md:text-lg md:text-left text-gray-300">
           A project description is a high-level overview of why you’re doing a
           project. The document explains a project’s objectives and its
           essential qualities. Think of it as the elevator pitch that focuses on
