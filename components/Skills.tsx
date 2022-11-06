@@ -20,7 +20,7 @@ const Skills = (props: Props) => {
         Hover over a skill for proficency
       </span>
 
-      <div className="mt-12 sm:mt-0 flex flex-wrap gap-5 items-center justify-center md:pt-0 md:grid md:grid-cols-4 max-h-[480px] overflow-y-scroll no-scrollbar">
+      <div className="mt-24 sm:mt-0 flex flex-wrap gap-5 items-center justify-center md:pt-0 md:grid md:grid-cols-4 max-h-[400px] sm:max-h-[600px] overflow-y-scroll no-scrollbar">
         <Skill />
         <Skill />
         <Skill />

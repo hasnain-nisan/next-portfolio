@@ -18,9 +18,9 @@ const ContactMe = (props: Props) => {
       <h3 className="absolute top-24 uppercase tracking-[10px] sm:tracking-[20px] text-gray-500 text-xl sm:text-2xl">
         Contact
       </h3>
-      <div className="flex flex-col space-y-3 sm:space-y-10 px-10 pb-10">
+      <div className="mt-10 sm:mt-0 flex flex-col space-y-3 sm:space-y-10 px-10 pb-10">
         <h4 className="mt-12 sm:mt-0 text-xl sm:text-2xl md:text-4xl font-semibold text-center text-gray-200">
-          <span className="underline decoration-[#966a0c]">Lets Connect</span>
+          <span className="underline decoration-[#966a0c]">Let's Connect</span>
         </h4>
 
         <div className="space-y-3 sm:space-y-5">

@@ -33,13 +33,13 @@ const About = (props: Props) => {
         md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]"
       />
 
-      <div className="space-y-10 px-0 md:px-10">
+      <div className="space-y-10 px-0 md:px-10 pt-5 sm:pt-0">
         <h4 className="text-2xl sm:text-4xl font-semibold top-5 relative text-gray-200">
           Here is a{" "}
           <span className="underline decoration-[#966a0c]">little</span>{" "}
           background
         </h4>
-        <div className="h-[250px] sm:h-72 overflow-y-scroll no-scrollbar">
+        <div className="h-[245px] sm:h-72 overflow-y-scroll no-scrollbar">
           <p className="text-sm sm:text-base text-gray-300">
             Beginning in the 1960s, software engineering was seen as its own
             type of engineering. Additionally, the development of software
