@@ -7,7 +7,19 @@ import Projects from '../components/Projects';
 import Skills from '../components/Skills';
 import WorkExperience from '../components/WorkExperience';
 
-export default function Home() {
+import { fetchData } from '../api';
+
+export async function getServerSideProps(){
+  let res = await fetchData();
+  return {
+    props: {
+      data: res.data,
+    },
+  };
+}
+
+export default function Home({data}) {
+  
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scroll-smooth">
       <Head
@@ -21,7 +33,7 @@ export default function Home() {
 
       {/* Hero */}
       <section id="hero" className="snap-center">
-        <Hero />
+        <Hero hero={data.hero} url={data.url}/>
       </section>
 
       {/* About */}
