@@ -1,11 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { motion } from "framer-motion";
 import { MdPhone, MdOutlineEmail } from "react-icons/md";
 import {FaMapMarkerAlt} from 'react-icons/fa'
+import { toast } from "react-toastify";
 
 type Props = {}
 
 const ContactMe = (props: Props) => {
+
+  const [contactFormData, setContactFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  })
+
+  const submitContactForm = (e:any) => {
+    e.preventDefault()
+    if(contactFormData.name === "" || contactFormData.email === "" || contactFormData.subject === "" || contactFormData.message === ""){
+      toast.error('Please fill all fields')
+    }
+  }
+
   return (
     <motion.div
       initial={{ scale: 0.1, opacity: 0 }}
@@ -20,8 +36,7 @@ const ContactMe = (props: Props) => {
       </h3>
       <div className="mt-10 sm:mt-0 flex flex-col space-y-3 sm:space-y-10 px-10 pb-10">
         <h4 className="mt-12 sm:mt-0 text-xl sm:text-2xl md:text-4xl font-semibold text-center text-gray-200">
-          Let's {" "}
-          <span className="underline decoration-[#966a0c]">Connect</span>
+          Let's <span className="underline decoration-[#966a0c]">Connect</span>
         </h4>
 
         <div className="space-y-3 sm:space-y-5">
@@ -45,35 +60,66 @@ const ContactMe = (props: Props) => {
           </div>
         </div>
 
-        <form className="flex flex-col space-y-2 w-fit mx-auto pt-5">
+        <form
+          className="flex flex-col space-y-2 w-fit mx-auto pt-5"
+          onSubmit={submitContactForm}
+        >
           <div className="flex flex-col sm:flex-row space-y-2 space-x-0 sm:space-y-0 sm:space-x-2">
             <input
               className="contactInput"
-              placeholder="Name"
+              placeholder="Enter name"
               type="text"
-              name=""
+              name="name"
               id=""
+              value={contactFormData.name}
+              onChange={(e) =>
+                setContactFormData({
+                  ...contactFormData,
+                  name: e.target.value,
+                })
+              }
             />
             <input
               className="contactInput"
-              placeholder="Email"
+              placeholder="Enter email"
               type="text"
-              name=""
+              name="email"
               id=""
+              value={contactFormData.email}
+              onChange={(e) =>
+                setContactFormData({
+                  ...contactFormData,
+                  email: e.target.value,
+                })
+              }
             />
           </div>
           <input
             className="contactInput"
-            placeholder="Subject"
+            placeholder="Enter subject"
             type="text"
-            name=""
+            name="subject"
             id=""
+            value={contactFormData.subject}
+            onChange={(e) =>
+              setContactFormData({
+                ...contactFormData,
+                subject: e.target.value,
+              })
+            }
           />
           <textarea
-            className="contactInput h-24 sm:h-36"
-            placeholder="Message"
-            name=""
+            className="contactInput resize-none h-24 sm:h-36 scrollbar-thin scrollbar-thumb-[#F7AB0A]/40 scrollbar-track-transparent scrollbar-thumb-rounded-md scroll-smooth"
+            placeholder="Enter message"
+            name="message"
             id=""
+            value={contactFormData.message}
+            onChange={(e) =>
+              setContactFormData({
+                ...contactFormData,
+                message: e.target.value,
+              })
+            }
           />
           <button
             className="px-6 py-2 border border-transparent rounded-xl uppercase 

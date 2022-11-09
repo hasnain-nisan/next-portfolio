@@ -8,6 +8,10 @@ import Skills from '../components/Skills';
 import WorkExperience from '../components/WorkExperience';
 import ReactTooltip from "react-tooltip";
 import { fetchData } from '../api';
+import {MdHome} from 'react-icons/md'
+import Link from 'next/link';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export async function getServerSideProps(){
   let res = await fetchData();
@@ -109,7 +113,25 @@ export default function Home({data}:Props) {
         <ContactMe />
       </section>
 
+      <footer className="sticky bottom-2 sm:bottom-5 z-20">
+        <div className="flex items-center justify-center">
+          <Link href="#hero">
+            <MdHome className="h-8 w-8 cursor-pointer text-gray-500 border p-1 hover:border-[#F7AB0A]/40 hover:bg-[#F7AB0A] hover:text-[rgb(36,36,36)] rounded-full" />
+          </Link>
+        </div>
+      </footer>
+
       <ReactTooltip />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={1500}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+        theme="dark"
+      />
     </div>
   );
 }
