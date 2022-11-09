@@ -26,6 +26,7 @@ const Projects = ({works, url}: Props) => {
       initial={{ scale: 0.1, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1.3 }}
+      viewport={{ once: true }}
       className="h-screen relative flex flex-col text-center md:text-left md:flex-row
         max-w-7xl px-10 justify-evenly mx-auto items-center pt-20"
     >
@@ -47,9 +48,9 @@ const Projects = ({works, url}: Props) => {
         {works.map((work, i) => {
           return (
             <SwiperSlide key={i}>
-              <Project work={work} url={url}/>
+              <Project work={work} url={url} />
             </SwiperSlide>
-          )
+          );
         })}
       </Swiper>
       <div className="w-full absolute sm:top-[30%] bg-[#58400c] h-[500px] -skew-y-12 opacity-60 rounded-xl"></div>

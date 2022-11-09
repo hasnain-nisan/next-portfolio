@@ -59,7 +59,10 @@ const Project = ({work, url}: Props) => {
             );
           })}
         </div>
-        <p className="text-sm max-h-[10rem] sm:max-h-76 md:max-h-80 overflow-y-scroll no-scrollbar text-center md:text-lg md:text-left text-gray-300">
+        <p
+          className="text-sm max-h-[10rem] sm:max-h-76 md:max-h-80 overflow-y-scroll text-center md:text-lg md:text-left text-gray-300 
+          scrollbar-thin scrollbar-thumb-[#292929] scrollbar-track-[#433415] scroll-smooth pr-2"
+        >
           {work.description}
         </p>
         <Link target={"_blank"} href={work.url}>
@@ -69,7 +72,7 @@ const Project = ({work, url}: Props) => {
               hover:border-[#F7AB0A]/40 hover:text-white hover:bg-[#F7AB0A]/40"
           >
             visit site
-          </button>      
+          </button>
         </Link>
       </div>
     </div>

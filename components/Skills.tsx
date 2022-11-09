@@ -17,6 +17,7 @@ const Skills = ({ skills, url }: Props) => {
       initial={{ scale: 0.1, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1.3 }}
+      viewport={{ once: true }}
       className="h-screen relative flex flex-col text-left md:flex-row
         max-w-7xl px-10 justify-evenly mx-auto items-center pt-10 sm:pt-20"
     >
@@ -27,7 +28,10 @@ const Skills = ({ skills, url }: Props) => {
         Hover over a skill for proficency
       </span>
 
-      <div className="mt-24 sm:mt-0 flex flex-wrap gap-5 items-center justify-center md:pt-0 md:grid md:grid-cols-4 max-h-[400px] sm:max-h-[600px] overflow-y-scroll no-scrollbar">
+      <div
+        className="mt-24 sm:mt-0 flex flex-wrap gap-5 items-center justify-center md:pt-0 md:grid md:grid-cols-4 max-h-[400px] sm:max-h-[600px] overflow-y-scroll 
+       scrollbar scroll-smooth"
+      >
         {skills.map((skill, i) => {
           return <Skill key={i} skill={skill} url={url} />;
         })}

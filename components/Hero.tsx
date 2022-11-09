@@ -46,6 +46,7 @@ const Hero = ({hero, url}:Props) => {
             duration: 2,
           }}
           whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
           loading="lazy"
           src={url + "/" + hero.image}
           className="relative rounded-full h-20 w-20 sm:h-32 sm:w-32 md:h-48 md:w-48 mx-auto object-cover"

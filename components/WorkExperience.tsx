@@ -30,6 +30,7 @@ const WorkExperience = ({experiences, url}: Props) => {
       initial={{ scale: 0.1, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1.3 }}
+      viewport={{ once: true }}
       className="h-screen relative flex flex-col text-left md:flex-row
         max-w-7xl px-10 justify-evenly mx-auto items-center pt-10 sm:pt-20"
     >
@@ -63,7 +64,7 @@ const WorkExperience = ({experiences, url}: Props) => {
         {experiences.map((experience, i) => {
           return (
             <SwiperSlide key={i}>
-              <ExperienceCard experience={experience} url={url}/>
+              <ExperienceCard experience={experience} url={url} />
             </SwiperSlide>
           );
         })}

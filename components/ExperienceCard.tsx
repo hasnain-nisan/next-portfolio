@@ -35,7 +35,7 @@ const ExperienceCard = ({experience, url}: Props) => {
           duration: 1,
         }}
         whileInView={{ scale: 1, opacity: 1 }}
-        // viewport={{ once: true }}
+        viewport={{ once: true }}
         loading="lazy"
         src={url + "/" + experience.company_logo}
         className="h-28 w-28 sm:w-32 sm:h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
@@ -77,7 +77,12 @@ const ExperienceCard = ({experience, url}: Props) => {
             ? "present"
             : experience.end_date.replace(/-/g, "/")}
         </p>
-        {<div className='experienceCardUL' dangerouslySetInnerHTML={{ __html: experience.key_points }} />}
+        {
+          <div
+            className="experienceCardUL scrollbar-thin scrollbar-thumb-[#F7AB0A]/10 scrollbar-track-[#292929] scroll-smooth"
+            dangerouslySetInnerHTML={{ __html: experience.key_points }}
+          />
+        }
       </div>
     </article>
   );

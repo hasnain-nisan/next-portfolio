@@ -6,11 +6,8 @@ import Hero from '../components/Hero';
 import Projects from '../components/Projects';
 import Skills from '../components/Skills';
 import WorkExperience from '../components/WorkExperience';
-
 import ReactTooltip from "react-tooltip";
-
 import { fetchData } from '../api';
-import { type } from 'os';
 
 export async function getServerSideProps(){
   let res = await fetchData();
@@ -70,7 +67,10 @@ export default function Home({data}:Props) {
   
   
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scroll-smooth">
+    <div
+      className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
+     scrollbar-thin scrollbar-thumb-[#F7AB0A]/40 scrollbar-track-[rgb(36,36,36)] scroll-smooth"
+    >
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Nisan's Portfolio</title>

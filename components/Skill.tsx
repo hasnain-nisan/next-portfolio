@@ -23,6 +23,7 @@ const Skill = ({skill, url}: Props) => {
         whileInView={{
           opacity: 1,
         }}
+        viewport={{ once: true }}
         loading="lazy"
         src={url + "/" + skill.icon}
         className="rounded-full border border-gray-500 object-contain w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 xl:h-32 xl:w-32 p-2
