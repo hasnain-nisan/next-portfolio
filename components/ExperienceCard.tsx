@@ -79,7 +79,7 @@ const ExperienceCard = ({experience, url}: Props) => {
         </p>
         {
           <div
-            className="experienceCardUL scrollbar-thin scrollbar-thumb-[#F7AB0A]/10 scrollbar-track-[#292929] scroll-smooth"
+            className="experienceCardUL scrollbar-thin scrollbar-thumb-[#F7AB0A]/10 scrollbar-track-transparent scrollbar-thumb-rounded-md scroll-smooth"
             dangerouslySetInnerHTML={{ __html: experience.key_points }}
           />
         }

@@ -56,7 +56,7 @@ const About = ({about, url}:Props) => {
             return element + " ";
           })}
         </h4>
-        <div className="h-[245px] sm:h-72 overflow-y-scroll scrollbar-thin scrollbar-thumb-[#F7AB0A]/10 scrollbar-track-[rgb(36,36,36)] scroll-smooth pr-2">
+        <div className="h-[245px] sm:h-72 overflow-y-scroll scrollbar-thin scrollbar-thumb-[#F7AB0A]/10 scrollbar-track-transparent scrollbar-thumb-rounded-md scroll-smooth pr-2">
           <p className="text-sm sm:text-base text-gray-300">
             {about.description}
           </p>

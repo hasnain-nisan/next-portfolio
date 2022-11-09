@@ -61,7 +61,7 @@ const Project = ({work, url}: Props) => {
         </div>
         <p
           className="text-sm max-h-[10rem] sm:max-h-76 md:max-h-80 overflow-y-scroll text-center md:text-lg md:text-left text-gray-300 
-          scrollbar-thin scrollbar-thumb-[#292929] scrollbar-track-[#433415] scroll-smooth pr-2"
+          scrollbar-thin scrollbar-thumb-[#292929] scrollbar-track-transparent scrollbar-thumb-rounded-md scroll-smooth pr-2"
         >
           {work.description}
         </p>
