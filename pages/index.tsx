@@ -7,7 +7,10 @@ import Projects from '../components/Projects';
 import Skills from '../components/Skills';
 import WorkExperience from '../components/WorkExperience';
 
+import ReactTooltip from "react-tooltip";
+
 import { fetchData } from '../api';
+import { type } from 'os';
 
 export async function getServerSideProps(){
   let res = await fetchData();
@@ -18,12 +21,57 @@ export async function getServerSideProps(){
   };
 }
 
-export default function Home({data}) {
+type Props = {
+  data: {
+    hero: {
+      tags: string;
+      image: string;
+    };
+    url: string;
+    about: {
+      title: string;
+      image: string;
+      description: string;
+    };
+    experiences: {
+      company_logo: string;
+      company_name: string;
+      position: string;
+      tech_stacks: {
+        image: string;
+        name: string;
+      }[];
+      is_present: boolean;
+      start_date: string;
+      end_date: string;
+      key_points: string;
+    }[];
+    skills: {
+      name: string;
+      icon: string;
+      expertise: number;
+    }[];
+    works: {
+      image: string;
+      name: string;
+      description: string;
+      url: string;
+      tech_stacks: {
+        image: string;
+        name: string;
+      }[];
+    }[];
+  };
+};
+
+export default function Home({data}:Props) {
+
+  console.log(data);
+  
   
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scroll-smooth">
-      <Head
-      >
+      <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Nisan's Portfolio</title>
       </Head>
@@ -33,33 +81,35 @@ export default function Home({data}) {
 
       {/* Hero */}
       <section id="hero" className="snap-center">
-        <Hero hero={data.hero} url={data.url}/>
+        <Hero hero={data.hero} url={data.url} />
       </section>
 
       {/* About */}
       <section id="about" className="snap-center">
-        <About />
+        <About about={data.about} url={data.url} />
       </section>
 
       {/* Experience */}
       <section id="workExperience" className="snap-center">
-        <WorkExperience />
+        <WorkExperience experiences={data.experiences} url={data.url} />
       </section>
 
       {/* Skills */}
       <section id="skills" className="snap-center">
-        <Skills />
+        <Skills skills={data.skills} url={data.url} />
       </section>
 
       {/* Projects */}
       <section id="projects" className="snap-center">
-        <Projects />
+        <Projects works={data.works} url={data.url} />
       </section>
 
       {/* Contact me */}
       <section id="contact" className="snap-center">
         <ContactMe />
       </section>
+
+      <ReactTooltip />
     </div>
   );
 }

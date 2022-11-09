@@ -1,10 +1,17 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion";
-import Skill from './Skill';
+import Skill from "./Skill";
 
-type Props = {}
+type Props = {
+  skills: {
+    name: string;
+    icon: string;
+    expertise: number;
+  }[];
+  url: string;
+};
 
-const Skills = (props: Props) => {
+const Skills = ({ skills, url }: Props) => {
   return (
     <motion.div
       initial={{ scale: 0.1, opacity: 0 }}
@@ -21,21 +28,12 @@ const Skills = (props: Props) => {
       </span>
 
       <div className="mt-24 sm:mt-0 flex flex-wrap gap-5 items-center justify-center md:pt-0 md:grid md:grid-cols-4 max-h-[400px] sm:max-h-[600px] overflow-y-scroll no-scrollbar">
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
+        {skills.map((skill, i) => {
+          return <Skill key={i} skill={skill} url={url} />;
+        })}
       </div>
     </motion.div>
   );
-}
+};
 
-export default Skills
+export default Skills;

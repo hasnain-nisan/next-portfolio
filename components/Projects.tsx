@@ -6,9 +6,21 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-type Props = {}
+type Props = {
+  works: {
+    image: string;
+    name: string;
+    description: string;
+    url: string;
+    tech_stacks: {
+      image: string;
+      name: string;
+    }[];
+  }[];
+  url: string;
+};
 
-const Projects = (props: Props) => {
+const Projects = ({works, url}: Props) => {
   return (
     <motion.div
       initial={{ scale: 0.1, opacity: 0 }}
@@ -28,25 +40,17 @@ const Projects = (props: Props) => {
         speed={1500}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
         className="w-full flex justify-center p-10"
       >
-        <SwiperSlide>
-          <Project />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Project />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Project />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Project />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Project />
-        </SwiperSlide>
+        {works.map((work, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <Project work={work} url={url}/>
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
       <div className="w-full absolute sm:top-[30%] bg-[#58400c] h-[500px] -skew-y-12 opacity-60 rounded-xl"></div>
     </motion.div>

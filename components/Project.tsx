@@ -1,9 +1,22 @@
 import React from 'react'
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-type Props = {}
+type Props = {
+  work: {
+    image: string;
+    name: string;
+    description: string;
+    url: string;
+    tech_stacks: {
+      image: string;
+      name: string;
+    }[];
+  };
+  url: string;
+};
 
-const Project = (props: Props) => {
+const Project = ({work, url}: Props) => {
   return (
     <div className="w-full h-screen flex flex-col flex-shrink-0 space-y-5 items-center justify-center pb-15">
       <motion.img
@@ -16,69 +29,48 @@ const Project = (props: Props) => {
         }}
         whileInView={{ scale: 1, opacity: 1 }}
         loading="lazy"
-        src="https://elements-cover-images-0.imgix.net/0d4288a6-5427-4c66-8571-10dce5cf4d3f?auto=compress%2Cformat&fit=max&w=900&s=543c20981c38a89caa61572b62f35504"
-        className="object-cover h-[100px] w-[220px] md:h-[200px] md:w-[350px] xl:h-[300px] xl:w-[450px]"
+        src={url + "/" + work.image}
+        className="object-cover h-[100px] w-[220px] md:h-[200px] md:w-[350px] xl:h-[300px] xl:w-[450px] rounded-lg"
       />
       <div className="pb-10 sm:pb-0 max-w-6xl space-y-5 sm:space-y-10 px-5 flex flex-col items-center">
         <h4 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center text-gray-200">
-          Ecommerce website
+          {work.name}
         </h4>
         <div className="flex justify-center space-x-2 my-2">
-          <picture className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
-            <source
-              srcSet="https://img.icons8.com/bubbles/500/react.png"
-              type="image/webp"
-            />
-            <img
-              src="https://img.icons8.com/bubbles/500/react.png"
-              alt="Landscape picture"
-              className="object-cover"
-              loading="lazy"
-            />
-          </picture>
-          <picture className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
-            <source
-              srcSet="https://img.icons8.com/bubbles/500/react.png"
-              type="image/webp"
-            />
-            <img
-              src="https://img.icons8.com/bubbles/500/react.png"
-              alt="Landscape picture"
-              className="object-cover"
-              loading="lazy"
-            />
-          </picture>
-          <picture className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
-            <source
-              srcSet="https://img.icons8.com/bubbles/500/react.png"
-              type="image/webp"
-            />
-            <img
-              src="https://img.icons8.com/bubbles/500/react.png"
-              alt="Landscape picture"
-              className="object-cover"
-              loading="lazy"
-            />
-          </picture>
+          {work.tech_stacks.map((tech, i) => {
+            return (
+              <picture
+                key={i}
+                className="h-8 w-8 sm:h-12 sm:w-12"
+                data-tip={tech.name}
+              >
+                <source
+                  className="h-8 w-8 sm:h-12 sm:w-12"
+                  srcSet={url + "/" + tech.image}
+                  type="image/webp"
+                />
+                <img
+                  className="h-8 w-8 sm:h-12 sm:w-12 object-contain rounded-lg sm:p-1"
+                  src={url + "/" + tech.image}
+                  alt="Landscape picture"
+                  loading="lazy"
+                />
+              </picture>
+            );
+          })}
         </div>
         <p className="text-sm max-h-[10rem] sm:max-h-76 md:max-h-80 overflow-y-scroll no-scrollbar text-center md:text-lg md:text-left text-gray-300">
-          A project description is a high-level overview of why you’re doing a
-          project. The document explains a project’s objectives and its
-          essential qualities. Think of it as the elevator pitch that focuses on
-          what and why without delving into how. You typically draft a project
-          description early on, during the project initiation phase of the
-          project management lifecycle. The project manager often writes the
-          project description. However, if you are working for an agency that
-          seeks grant funding or writing a research proposal, you might need to
-          learn how to write a project description in a project proposal.
+          {work.description}
         </p>
-        <button
-          className="px-6 py-2 border border-gray-300 rounded-full uppercase 
-            text-xs tracking-widest text-gray-300 cursor-pointer transition-all
-            hover:border-[#F7AB0A]/40 hover:text-white hover:bg-[#F7AB0A]/40"
-        >
-          visit site
-        </button>
+        <Link target={"_blank"} href={work.url}>
+          <button
+            className="px-6 py-2 border border-gray-300 rounded-full uppercase 
+              text-xs tracking-widest text-gray-300 cursor-pointer transition-all
+              hover:border-[#F7AB0A]/40 hover:text-white hover:bg-[#F7AB0A]/40"
+          >
+            visit site
+          </button>      
+        </Link>
       </div>
     </div>
   );

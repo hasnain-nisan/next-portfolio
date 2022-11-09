@@ -5,15 +5,21 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 type Props = {
-  hero: object
+  hero: {
+    tags: string,
+    image: string,
+  },
+  url: string,
 }
 
-const Hero = ({hero, url}) => {
+
+
+const Hero = ({hero, url}:Props) => {
 
   const removehiphen = () => {
     let tags = JSON.parse(hero.tags);
-    let newTags = [];
-    tags.forEach(tag => {
+    let newTags:string[] = [];
+    tags.forEach((tag:string) => {
       let newTag = tag.replace(/-/g, " ");
       newTags.push(newTag)
     }) 
@@ -42,7 +48,7 @@ const Hero = ({hero, url}) => {
           whileInView={{ opacity: 1, scale: 1 }}
           loading="lazy"
           src={url + "/" + hero.image}
-          className="relative rounded-full h-20 w-20 sm:h-32 sm:w-32 mx-auto object-cover"
+          className="relative rounded-full h-20 w-20 sm:h-32 sm:w-32 md:h-48 md:w-48 mx-auto object-cover"
         />
         <div className="z-20">
           <h2 className="px-2 text-sm uppercase font-bold text-gray-500 pb-2 tracking-[15px]">

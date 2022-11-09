@@ -7,9 +7,24 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-type Props = {}
+type Props = {
+  experiences: {
+    company_logo: string;
+    company_name: string;
+    position: string;
+    tech_stacks: {
+      image: string;
+      name: string;
+    }[];
+    is_present: boolean;
+    start_date: string;
+    end_date: string;
+    key_points: string;
+  }[];
+  url: string;
+};
 
-const WorkExperience = (props: Props) => {
+const WorkExperience = ({experiences, url}: Props) => {
   return (
     <motion.div
       initial={{ scale: 0.1, opacity: 0 }}
@@ -41,22 +56,17 @@ const WorkExperience = (props: Props) => {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
         className="w-full flex justify-center p-10"
       >
-        <SwiperSlide>
-          <ExperienceCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ExperienceCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ExperienceCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ExperienceCard />
-        </SwiperSlide>
+        {experiences.map((experience, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <ExperienceCard experience={experience} url={url}/>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </motion.div>
   );

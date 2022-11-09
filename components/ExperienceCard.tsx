@@ -1,9 +1,25 @@
 import React from 'react'
 import { motion } from "framer-motion"
+import {HiArrowNarrowRight} from 'react-icons/hi'
 
-type Props = {}
+type Props = {
+  experience: {
+    company_logo: string;
+    company_name: string;
+    position: string;
+    tech_stacks: {
+      image: string;
+      name: string;
+    }[];
+    is_present: boolean;
+    start_date: string;
+    end_date: string;
+    key_points: string
+  };
+  url: string;
+};
 
-const ExperienceCard = (props: Props) => {
+const ExperienceCard = ({experience, url}: Props) => {
   return (
     <article
       className="text-center flex flex-col rounded-lg items-center space-y-4 sm:space-y-7 flex-shrink-0 
@@ -21,62 +37,47 @@ const ExperienceCard = (props: Props) => {
         whileInView={{ scale: 1, opacity: 1 }}
         // viewport={{ once: true }}
         loading="lazy"
-        src="https://mlsyjcfh464h.i.optimole.com/VzQyBNw.57AO~6809f/w:auto/h:auto/q:mauto/https://lazychat.io/wp-content/uploads/2022/06/logo-google.jpg"
+        src={url + "/" + experience.company_logo}
         className="h-28 w-28 sm:w-32 sm:h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
       />
-      <div className="px-0 md:px-10">
+      <div className="px-0">
         <h4 className="text-2xl sm:text-3xl font-light text-gray-200">
-          Backend Developer
+          {experience.position}
         </h4>
         <p className="text-xl sm:text-2xl font-bold mt-1 text-gray-200">
-          Lazychat
+          {experience.company_name}
         </p>
         <div className="flex justify-center space-x-2 my-2">
-          <picture className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
-            <source
-              srcSet="https://img.icons8.com/bubbles/500/react.png"
-              type="image/webp"
-            />
-            <img
-              src="https://img.icons8.com/bubbles/500/react.png"
-              alt="Landscape picture"
-              className="object-cover"
-              loading="lazy"
-            />
-          </picture>
-          <picture className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
-            <source
-              srcSet="https://img.icons8.com/bubbles/500/react.png"
-              type="image/webp"
-            />
-            <img
-              src="https://img.icons8.com/bubbles/500/react.png"
-              alt="Landscape picture"
-              className="object-cover"
-              loading="lazy"
-            />
-          </picture>
-          <picture className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
-            <source
-              srcSet="https://img.icons8.com/bubbles/500/react.png"
-              type="image/webp"
-            />
-            <img
-              src="https://img.icons8.com/bubbles/500/react.png"
-              alt="Landscape picture"
-              className="object-cover"
-              loading="lazy"
-            />
-          </picture>
+          {experience.tech_stacks.map((tech, i) => {
+            return (
+              <picture
+                key={i}
+                className="h-8 w-8 sm:h-12 sm:w-12"
+                data-tip={tech.name}
+              >
+                <source
+                  className="h-8 w-8 sm:h-12 sm:w-12"
+                  srcSet={url + "/" + tech.image}
+                  type="image/webp"
+                />
+                <img
+                  className="h-8 w-8 sm:h-12 sm:w-12 object-contain rounded-lg sm:p-1"
+                  src={url + "/" + tech.image}
+                  alt="Landscape picture"
+                  loading="lazy"
+                />
+              </picture>
+            );
+          })}
         </div>
-        <p className="uppercase pt-2 pb-5 text-gray-400">Start --- End</p>
-        <ul className="list-disc space-y-2 ml-5 text-sm sm:text-[18px] text-start text-gray-300">
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-        </ul>
+        <p className="uppercase pt-2 pb-5 text-gray-400 flex gap-x-3 items-center justify-center">
+          {experience.start_date.replace(/-/g, "/")}
+          <HiArrowNarrowRight />{" "}
+          {experience.end_date === null
+            ? "present"
+            : experience.end_date.replace(/-/g, "/")}
+        </p>
+        {<div className='experienceCardUL' dangerouslySetInnerHTML={{ __html: experience.key_points }} />}
       </div>
     </article>
   );

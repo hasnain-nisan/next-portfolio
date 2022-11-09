@@ -14,6 +14,14 @@
             px-4 py-2 sm:px-6 sm:py-4 text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7A80A]/40
              focus:text-[#F7A80A]/40 hover:border-[#F7A80A]/40
     }
+
+    .experienceCardUL {
+        @apply h-32 overflow-y-scroll sm:no-scrollbar sm:h-40
+    }
+
+    .experienceCardUL > ul {
+        @apply list-disc space-y-2 ml-5 text-sm sm:text-[18px] text-start text-gray-300
+    }
 }
 
 @layer utilities {
