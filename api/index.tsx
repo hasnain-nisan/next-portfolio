@@ -6,3 +6,8 @@ export const fetchData = () =>
   axios.post(`${url}/get-all-data`, {
     token: "f240ad10-2d42-4d20-b361-4f4dc419b360",
   });
+
+export const submitContactMessge = (formData:any) => {
+  formData.append("token", "f240ad10-2d42-4d20-b361-4f4dc419b360");
+  return axios.post(`${url}/add-contact-message`, formData);
+}

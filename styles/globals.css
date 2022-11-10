@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'toastify.css';
 
 @layer components {
     .heroButton {
@@ -21,6 +22,11 @@
 
     .experienceCardUL > ul {
         @apply list-disc space-y-2 ml-5 text-sm sm:text-[18px] text-start text-gray-300
+    }
+
+    /** Classes for the displayed toast **/
+    .Toastify__toast-theme--dark {
+        background-color: rgb(36,36,36) !important;
     }
 }
 

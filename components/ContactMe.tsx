@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { MdPhone, MdOutlineEmail } from "react-icons/md";
 import {FaMapMarkerAlt} from 'react-icons/fa'
 import { toast } from "react-toastify";
+import {submitContactMessge} from '../api/index'
 
 type Props = {}
 
@@ -17,9 +18,22 @@ const ContactMe = (props: Props) => {
 
   const submitContactForm = (e:any) => {
     e.preventDefault()
+    let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
     if(contactFormData.name === "" || contactFormData.email === "" || contactFormData.subject === "" || contactFormData.message === ""){
       toast.error('Please fill all fields')
+    } else if(!contactFormData.email.match(regex)){
+      toast.error("Please enter valid email address");
+    } else {
+      let formData = new FormData();
+      formData.append("name", contactFormData.name)
+      formData.append("email", contactFormData.email);
+      formData.append("subject", contactFormData.subject);
+      formData.append("message", contactFormData.message);
+      let res = submitContactMessge(formData);
+      toast.success("Message sent successfully");
     }
+
   }
 
   return (

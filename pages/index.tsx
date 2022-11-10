@@ -11,7 +11,6 @@ import { fetchData } from '../api';
 import {MdHome} from 'react-icons/md'
 import Link from 'next/link';
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export async function getServerSideProps(){
   let res = await fetchData();
@@ -66,10 +65,6 @@ type Props = {
 };
 
 export default function Home({data}:Props) {
-
-  console.log(data);
-  
-  
   return (
     <div
       className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 
@@ -123,12 +118,17 @@ export default function Home({data}:Props) {
 
       <ReactTooltip />
       <ToastContainer
+        style={{
+          backgroundColor: "transparent",
+        }}
         position="bottom-left"
         autoClose={1500}
         hideProgressBar={true}
         newestOnTop={false}
         closeOnClick
         rtl={false}
+        pauseOnHover
+        pauseOnFocusLoss
         draggable
         theme="dark"
       />
