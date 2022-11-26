@@ -14,8 +14,6 @@ import { ToastContainer } from "react-toastify";
 
 export async function getServerSideProps(){
   let res = await fetchData();
-  console.log(res);
-  
   return {
     props: {
       data: res.data,
@@ -75,7 +73,7 @@ export default function Home({data}:Props) {
     >
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Nisan's Portfolio</title>
+        <title>Nisan&apos;s Portfolio</title>
       </Head>
 
       {/* Header */}

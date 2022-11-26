@@ -50,7 +50,8 @@ const ContactMe = (props: Props) => {
       </h3>
       <div className="mt-10 sm:mt-0 flex flex-col space-y-3 sm:space-y-10 px-10 pb-10">
         <h4 className="mt-12 sm:mt-0 text-xl sm:text-2xl md:text-4xl font-semibold text-center text-gray-200">
-          Let's <span className="underline decoration-[#966a0c]">Connect</span>
+          Let&apos;s{" "}
+          <span className="underline decoration-[#966a0c]">Connect</span>
         </h4>
 
         <div className="space-y-3 sm:space-y-5">
