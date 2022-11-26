@@ -14,12 +14,15 @@ import { ToastContainer } from "react-toastify";
 
 export async function getServerSideProps(){
   let res = await fetchData();
+  console.log(res);
+  
   return {
     props: {
       data: res.data,
     },
   };
 }
+
 
 type Props = {
   data: {
