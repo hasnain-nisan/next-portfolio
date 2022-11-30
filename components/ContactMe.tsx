@@ -4,6 +4,7 @@ import { MdPhone, MdOutlineEmail } from "react-icons/md";
 import {FaMapMarkerAlt} from 'react-icons/fa'
 import { toast } from "react-toastify";
 import {submitContactMessge} from '../api/index'
+import mailtoLink from "mailto-link";
 
 type Props = {}
 
@@ -30,8 +31,11 @@ const ContactMe = (props: Props) => {
       formData.append("email", contactFormData.email);
       formData.append("subject", contactFormData.subject);
       formData.append("message", contactFormData.message);
-      let res = submitContactMessge(formData);
-      toast.success("Message sent successfully");
+      
+      window.location.href = `mailto:nissongo.rajputro@gmail.com?subject=${contactFormData.subject}&body=Hi, my name is ${contactFormData.name}. ${contactFormData.message}`;
+      
+      // let res = submitContactMessge(formData);
+      // toast.success("Message sent successfully");
     }
 
   }
